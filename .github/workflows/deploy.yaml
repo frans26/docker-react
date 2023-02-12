@@ -15,9 +15,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
-      - name: Build app
-        uses: actions/checkout@v3
-        run: |
+      - uses: actions/checkout@v3
+      - run: |
           docker build -t frans/docker-react -f Dockerfile.dev .
           docker run -e CI=true frans/docker-react npm run test -- --coverage
 
