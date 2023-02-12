@@ -14,5 +14,5 @@ RUN npm run build
 
 # nginx base image
 FROM nginx:stable-alpine
-
+EXPOSE 80
 COPY --from=build /app/build /usr/share/nginx/html
